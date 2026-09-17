@@ -1,0 +1,15 @@
+{
+	"$schema": "https://context7.com/schema/context7.json",
+	"projectTitle": "StackTaste",
+	"description": "Persistent taste layer for coding agents. CLI, MCP, and ranked Markdown taste. Cursor is live.",
+	"folders": ["docs"],
+	"url": "https://context7.com/stacktaste/stacktaste-docs",
+	"public_key": "pk_1ltDayoH74lyejyd8Xl4N",
+	"excludeFiles": [],
+	"rules": [
+		"Cursor is the only live agent. Other editors are coming soon.",
+		"Taste lives in .stacktaste/ as Markdown. Cloud is sync and history, not the agent hot path.",
+		"Use stacktaste login, then stacktaste init. Do not invent extra rules.",
+		"Blocking policies always apply first when injecting context."
+	]
+}
