@@ -1,10 +1,10 @@
 ---
 title: CLI
-description: bunx stacktaste. Token in the keychain. Never in the repo.
+description: Install @stacktaste/cli. Token in the keychain. Never in the repo.
 ---
 
 ```bash
-bunx stacktaste help
+stacktaste help
 ```
 
 | Command | Purpose |
@@ -23,11 +23,49 @@ bunx stacktaste help
 
 ## Install
 
-Use Bun. The CLI is not a separate npm SDK.
+The package is `@stacktaste/cli` on npm. The binary is `stacktaste`.
 
-```bash
-bunx stacktaste login
+<CodeGroup>
+
+```bash npm
+npm install -g @stacktaste/cli
 ```
+
+```bash pnpm
+pnpm add -g @stacktaste/cli
+```
+
+```bash yarn
+yarn global add @stacktaste/cli
+```
+
+```bash bun
+bun add -g @stacktaste/cli
+```
+
+</CodeGroup>
+
+Or run without installing:
+
+<CodeGroup>
+
+```bash npm
+npx @stacktaste/cli login
+```
+
+```bash pnpm
+pnpm dlx @stacktaste/cli login
+```
+
+```bash yarn
+yarn dlx @stacktaste/cli login
+```
+
+```bash bun
+bunx @stacktaste/cli login
+```
+
+</CodeGroup>
 
 ## Auth
 

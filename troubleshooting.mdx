@@ -6,13 +6,13 @@ description: doctor, login, drift, secrets, and a grant that is missing this pro
 Run this first:
 
 ```bash
-bunx stacktaste doctor
+stacktaste doctor
 ```
 
 ## Not logged in
 
 ```bash
-bunx stacktaste login
+stacktaste login
 ```
 
 Token sources, in order: `STACKTASTE_TOKEN`, OS keychain, `~/.config/stacktaste/credentials` (mode `0600`). Doctor warns if the file fallback is in use.
@@ -34,7 +34,7 @@ Title or body looks like a credential, private key, or `.env` dump. Remove it. T
 ## Repo not linked
 
 ```bash
-bunx stacktaste init
+stacktaste init
 ```
 
 Already linked: pass `--reinit` to switch project or path.

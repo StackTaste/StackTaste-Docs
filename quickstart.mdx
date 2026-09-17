@@ -13,9 +13,25 @@ Sign up at [stacktaste.com](https://stacktaste.com) and create a project.
 
 In the repo:
 
-```bash
-bunx stacktaste login
+<CodeGroup>
+
+```bash npm
+npx @stacktaste/cli login
 ```
+
+```bash pnpm
+pnpm dlx @stacktaste/cli login
+```
+
+```bash yarn
+yarn dlx @stacktaste/cli login
+```
+
+```bash bun
+bunx @stacktaste/cli login
+```
+
+</CodeGroup>
 
 A browser tab opens. Pick one project. The token is stored in the OS keychain, never in git.
 
@@ -23,9 +39,25 @@ Press Ctrl+C after login if you want to init later.
 
 ## 3. Link the repo
 
-```bash
-bunx stacktaste init
+<CodeGroup>
+
+```bash npm
+npx @stacktaste/cli init
 ```
+
+```bash pnpm
+pnpm dlx @stacktaste/cli init
+```
+
+```bash yarn
+yarn dlx @stacktaste/cli init
+```
+
+```bash bun
+bunx @stacktaste/cli init
+```
+
+</CodeGroup>
 
 The wizard asks:
 

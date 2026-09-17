@@ -6,8 +6,8 @@ description: Capture proposed taste, accept or reject, scan blocking policies.
 ## Learn
 
 ```bash
-bunx stacktaste learn "Prefer tabs" --body "Indent with tabs, not spaces."
-bunx stacktaste learn --kind policy "No lodash"
+stacktaste learn "Prefer tabs" --body "Indent with tabs, not spaces."
+stacktaste learn --kind policy "No lodash"
 ```
 
 `--kind` is `preference` (default), `convention`, `policy`, `lesson`, or `exception`.
@@ -17,9 +17,9 @@ Logged in: creates on the server as **proposed**. Else writes local Markdown. Th
 ## Review
 
 ```bash
-bunx stacktaste review
-bunx stacktaste review accept <id-or-title>
-bunx stacktaste review reject <id-or-title>
+stacktaste review
+stacktaste review accept <id-or-title>
+stacktaste review reject <id-or-title>
 ```
 
 Needs login. Pulls after accept or reject so local files and Cursor rules match.
@@ -27,8 +27,8 @@ Needs login. Pulls after accept or reject so local files and Cursor rules match.
 ## Check
 
 ```bash
-bunx stacktaste check
-bunx stacktaste check apps/web/src/lib/foo.ts
+stacktaste check
+stacktaste check apps/web/src/lib/foo.ts
 ```
 
 1. If logged in and behind, **pull** first (keeps unpublished local proposals).
