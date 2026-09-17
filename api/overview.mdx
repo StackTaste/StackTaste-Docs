@@ -1,0 +1,33 @@
+---
+title: API
+description: oRPC at /rpc. Machine keys, not the dashboard cookie session.
+---
+
+There is no TypeScript SDK package. The dashboard and CLI use `@stacktaste/contract` over fetch.
+
+```
+https://api.stacktaste.com/rpc
+```
+
+Procedure names, not REST paths. Example: `taste.list`.
+
+## Headers
+
+| Header | Value |
+| --- | --- |
+| `Authorization` | `Bearer st_…` |
+| `X-StackTaste-Project` | Project id |
+
+Mint keys in **Project keys** (`ci`) or via `stacktaste login` (`cli`).
+
+## Publish
+
+- [Auth](/api/auth)
+- [health.check](/api/health)
+- [cli.*](/api/cli)
+- [taste.*](/api/taste)
+- [key.*](/api/keys)
+
+Dashboard-only (not documented here): onboarding, profile, members, roles, project settings.
+
+Call it the same way the CLI does: `RPCLink` to `/rpc` with those headers. No public `@stacktaste/sdk` package.

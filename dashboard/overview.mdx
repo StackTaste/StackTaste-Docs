@@ -1,0 +1,32 @@
+---
+title: Dashboard
+description: Overview is health. Preferences, Policies, and Lessons are the taste list.
+---
+
+## Overview
+
+Project health: people, machines, live taste, awaiting review, month-to-date edits.
+
+**Agents connected** lists only editors that have a machine on this project. Cursor is the live editor.
+
+## Taste list
+
+One list, three routes:
+
+| Route | Filter |
+| --- | --- |
+| `/app/preferences` | Preferences and conventions |
+| `/app/policies` | Policies and exceptions |
+| `/app/lessons` | Lessons |
+
+Propose from the header. Click a row for body, confidence, history, accept, reject, or fork.
+
+## Review
+
+| Action | Result |
+| --- | --- |
+| Accept | Status becomes `active`. Agents can inject it |
+| Reject | Archived. Never reopens. Fork to try again |
+| Reinforce | “Hit this again.” Confidence goes up |
+
+Same actions exist as `stacktaste review accept|reject`.

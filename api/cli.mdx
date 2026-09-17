@@ -1,0 +1,28 @@
+---
+title: cli
+description: Machine grant procedures. Used by the CLI, not the dashboard UI.
+---
+
+All except `authorize` run as the API key. `authorize` is the browser grant step.
+
+## `cli.whoami`
+
+Who holds this key.
+
+## `cli.grants`
+
+Projects this key may sync. Usually one.
+
+## `cli.pulled`
+
+Stamp `lastPullAt`. Called after a successful pull.
+
+Output: `{ pulledAt, tasteUpdatedAt }`.
+
+## `cli.revoke`
+
+Revoke this key. Same as `stacktaste logout`.
+
+## `cli.authorize`
+
+Session-only. Mints a key for `projectId`. Input may include `agents` and `via`. Output includes `key` once.

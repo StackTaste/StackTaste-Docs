@@ -1,0 +1,44 @@
+---
+title: Taste files
+description: Protocol 0.2.0. Markdown items with YAML frontmatter.
+---
+
+Directory: `.stacktaste/`. Constants live in `@stacktaste/protocol`.
+
+## Files
+
+| File | Contents |
+| --- | --- |
+| `config.json` | Linked project, agents, protocol. Never a token |
+| `personal.md` | `scope: personal` |
+| `project.md` | Project preferences and conventions |
+| `team.md` | Team-scoped items |
+| `lessons.md` | `kind: lesson` |
+| `policies.md` | `policy` and `exception` |
+
+## Frontmatter
+
+Required: `id`, `kind`, `scope`, `enforcement`, `status`, plus title in the body as `# Title`.
+
+Also stored: `confidence`, `explicit`, `shareable`, counts, `lastMentionedAt`, `lastReinforcedAt`, `sourceAgent`, `evidence`, `supersedes`.
+
+## Example
+
+```md
+---
+id: c971585d-93e9-4e1a-97d7-93a8d0483b7f
+kind: policy
+scope: project
+enforcement: block
+status: active
+confidence: 1
+explicit: true
+shareable: true
+---
+
+# Do not introduce another ORM
+
+Kysely is the only query layer. Migrations live in packages/db.
+```
+
+Kinds, scopes, enforcement, statuses: [Taste model](/concepts/taste).

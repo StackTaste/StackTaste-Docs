@@ -1,0 +1,26 @@
+---
+title: Init
+description: Link a folder to a granted project and wire an agent.
+---
+
+```bash
+bunx stacktaste init
+```
+
+## Flags
+
+| Flag | Purpose |
+| --- | --- |
+| `--project <slug>` | Skip the project list |
+| `--path <folder>` | Repo root or a subfolder such as `apps/web` |
+| `--agent <id>` | Skip the agent list. Use `cursor` |
+| `--reinit` | Relink if `.stacktaste/` already exists |
+
+Not a TTY: pass `--project` (and `--path` / `--agent` if you do not want defaults).
+
+## Writes
+
+- `stacktaste.config.json` at the workspace root
+- `.stacktaste/` at the chosen path
+- Cursor files if the agent is `cursor`
+- Pulls live taste, then `cli.pulled`

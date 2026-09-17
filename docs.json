@@ -1,0 +1,120 @@
+{
+	"$schema": "https://mintlify.com/docs.json",
+	"theme": "mint",
+	"name": "StackTaste",
+	"description": "The persistent taste layer for coding agents.",
+	"colors": {
+		"primary": "#6D5DF5",
+		"light": "#6D5DF5",
+		"dark": "#8B7FF7"
+	},
+	"fonts": {
+		"family": "Open Runde",
+		"weight": 400,
+		"source": "/fonts/open-runde-latin-400-normal.woff2",
+		"format": "woff2",
+		"heading": {
+			"family": "Open Runde",
+			"weight": 500,
+			"source": "/fonts/open-runde-latin-500-normal.woff2",
+			"format": "woff2"
+		},
+		"body": {
+			"family": "Open Runde",
+			"weight": 400,
+			"source": "/fonts/open-runde-latin-400-normal.woff2",
+			"format": "woff2"
+		}
+	},
+	"logo": {
+		"light": "https://cdn.stacktaste.com/brand/stacktaste-mark.svg",
+		"dark": "https://cdn.stacktaste.com/brand/stacktaste-mark.svg"
+	},
+	"favicon": "https://cdn.stacktaste.com/brand/stacktaste-mark.svg",
+	"navbar": {
+		"links": [
+			{
+				"label": "Dashboard",
+				"href": "https://stacktaste.com/app"
+			}
+		],
+		"primary": {
+			"type": "button",
+			"label": "Get started",
+			"href": "https://stacktaste.com"
+		}
+	},
+	"footer": {
+		"socials": {}
+	},
+	"navigation": {
+		"tabs": [
+			{
+				"tab": "Guides",
+				"groups": [
+					{
+						"group": "Start",
+						"pages": ["introduction", "quickstart", "concepts/how-it-works"]
+					},
+					{
+						"group": "Taste",
+						"pages": ["concepts/taste", "concepts/files", "concepts/ranking"]
+					},
+					{
+						"group": "Product",
+						"pages": ["dashboard/overview", "dashboard/team", "agents/cursor"]
+					},
+					{
+						"group": "Help",
+						"pages": ["troubleshooting", "coming-soon"]
+					}
+				]
+			},
+			{
+				"tab": "CLI",
+				"groups": [
+					{
+						"group": "Reference",
+						"pages": [
+							"cli/overview",
+							"cli/login",
+							"cli/init",
+							"cli/agents",
+							"cli/sync",
+							"cli/status",
+							"cli/learn",
+							"cli/stdio"
+						]
+					}
+				]
+			},
+			{
+				"tab": "MCP",
+				"groups": [
+					{
+						"group": "Agents",
+						"pages": ["mcp/overview", "mcp/tools"]
+					}
+				]
+			},
+			{
+				"tab": "Protocol",
+				"groups": [
+					{
+						"group": "Spec",
+						"pages": ["protocol/files"]
+					}
+				]
+			},
+			{
+				"tab": "API",
+				"groups": [
+					{
+						"group": "Reference",
+						"pages": ["api/overview", "api/auth", "api/health", "api/cli", "api/taste", "api/keys"]
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,0 +1,47 @@
+---
+title: Troubleshooting
+description: doctor, login, drift, secrets, and a grant that is missing this project.
+---
+
+Run this first:
+
+```bash
+bunx stacktaste doctor
+```
+
+## Not logged in
+
+```bash
+bunx stacktaste login
+```
+
+Token sources, in order: `STACKTASTE_TOKEN`, OS keychain, `~/.config/stacktaste/credentials` (mode `0600`). Doctor warns if the file fallback is in use.
+
+## Grant missing this project
+
+Login again and pick the project. Grants are additive. The key is one project per machine grant.
+
+## Drift
+
+Local ids do not match cloud. `stacktaste sync` pushes proposed items, then pulls.
+
+`stacktaste check` pulls first if you are behind.
+
+## Secrets
+
+Title or body looks like a credential, private key, or `.env` dump. Remove it. The API and CLI both scan.
+
+## Repo not linked
+
+```bash
+bunx stacktaste init
+```
+
+Already linked: pass `--reinit` to switch project or path.
+
+## Cursor not seeing taste
+
+1. `stacktaste status` — agents should include `cursor`.
+2. `stacktaste agents add cursor` if missing.
+3. Reload the Cursor window.
+4. Confirm `.cursor/mcp.json` and `.cursor/hooks.json` exist.

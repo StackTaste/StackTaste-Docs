@@ -1,0 +1,46 @@
+---
+title: Quickstart
+description: Sign in, link a repo, and wire Cursor in three commands.
+---
+
+Cursor is the only agent that is live. Other editors are coming soon.
+
+## 1. Create a project
+
+Sign up at [stacktaste.com](https://stacktaste.com) and create a project.
+
+## 2. Grant this machine
+
+In the repo:
+
+```bash
+bunx stacktaste login
+```
+
+A browser tab opens. Pick one project. The token is stored in the OS keychain, never in git.
+
+Press Ctrl+C after login if you want to init later.
+
+## 3. Link the repo
+
+```bash
+bunx stacktaste init
+```
+
+The wizard asks:
+
+- Which project (skipped if the grant has one)
+- Where `.stacktaste/` should live (repo root or a subfolder)
+- Which agent (pick **Cursor**)
+
+Then it pulls team taste, writes `stacktaste.config.json`, and wires Cursor MCP, hooks, and `.cursor/rules`.
+
+## 4. Open Cursor
+
+Start a chat in that repo. StackTaste attaches ranked taste at session start. Blocking policies always apply.
+
+## Next
+
+- [How it works](/concepts/how-it-works)
+- [Cursor](/agents/cursor)
+- [CLI](/cli/overview)

@@ -1,0 +1,81 @@
+---
+title: MCP tools
+description: Eight tools. Ranked context, search, learn, and review.
+---
+
+Server name: `stacktaste`.
+
+## `taste_status`
+
+Workspace path, whether `.stacktaste/` exists, counts.
+
+Input: none.
+
+## `taste_context`
+
+Ranked live taste. Blocking policies first.
+
+| Field | Type |
+| --- | --- |
+| `query` | string, optional. Prompt or paths |
+
+## `taste_search`
+
+Local title, body, kind.
+
+| Field | Type |
+| --- | --- |
+| `query` | string, required |
+
+## `taste_get`
+
+One item by id, id prefix, or unique title.
+
+| Field | Type |
+| --- | --- |
+| `id` | string, required |
+
+## `taste_learn`
+
+New **proposed** item.
+
+| Field | Type |
+| --- | --- |
+| `title` | string, 2–240 |
+| `body` | string, 1–20000 |
+| `kind` | optional enum |
+| `enforcement` | optional enum |
+
+## `taste_propose`
+
+Same as learn. If `id` is set and you are logged in, opens a suggestion on that item.
+
+| Field | Type |
+| --- | --- |
+| `title` | string |
+| `body` | string |
+| `kind` | optional |
+| `enforcement` | optional |
+| `id` | string, optional |
+
+## `taste_reinforce`
+
+Record another hit.
+
+| Field | Type |
+| --- | --- |
+| `id` | string |
+| `note` | string, optional, max 500 |
+
+## `taste_review`
+
+Accept or reject a proposal. Needs a logged-in CLI.
+
+| Field | Type |
+| --- | --- |
+| `id` | string |
+| `action` | `accept` or `reject` |
+
+```json
+{ "id": "c971585d", "action": "accept" }
+```

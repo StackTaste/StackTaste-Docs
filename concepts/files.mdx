@@ -1,0 +1,31 @@
+---
+title: Local files
+description: Markdown in .stacktaste/ is the working copy. Tokens never go here.
+---
+
+## Layout
+
+```
+repo/
+  stacktaste.config.json
+  .stacktaste/
+    config.json
+    personal.md      # gitignored
+    project.md
+    team.md
+    lessons.md
+    policies.md
+```
+
+`stacktaste.config.json` sits at the repo root and points at one or more packages (monorepos). It never contains a token.
+
+`.stacktaste/config.json` is the linked project id, slug, name, protocol version, and wired agents.
+
+## Rules
+
+- Edit Markdown. `stacktaste push` sends **proposed** items to the cloud.
+- `stacktaste pull` replaces local files from the cloud and regenerates Cursor rules.
+- `personal.md` stays on this machine.
+- Secrets in title or body are rejected. `doctor` scans too.
+
+Protocol version is `0.2.0`. See [Taste files](/protocol/files).

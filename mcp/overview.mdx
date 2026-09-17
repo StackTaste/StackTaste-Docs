@@ -1,0 +1,40 @@
+---
+title: MCP
+description: Stdio server named stacktaste. Cursor launches it from .cursor/mcp.json.
+---
+
+There is no npm SDK. Agents talk to StackTaste through this MCP server and through hooks.
+
+## Wire
+
+`stacktaste init` or `agents add cursor` writes:
+
+```json
+{
+  "mcpServers": {
+    "stacktaste": {
+      "command": "bun",
+      "args": ["/path/to/stacktaste", "mcp"]
+    }
+  }
+}
+```
+
+Exact `command` / `args` are the CLI process that ran init, so the same binary is reused.
+
+## Hosts
+
+| How it starts | Network |
+| --- | --- |
+| `stacktaste mcp` (Cursor) | Local files plus API if you are logged in |
+| `stacktaste-mcp` binary | Local Markdown only |
+
+## Inject
+
+| Path | Role |
+| --- | --- |
+| Hooks | Automatic ranked slice |
+| MCP tools | Explicit get / learn / review |
+| `.cursor/rules` | Always-apply file |
+
+Tools: [MCP tools](/mcp/tools).

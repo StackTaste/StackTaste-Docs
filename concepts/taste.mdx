@@ -1,0 +1,46 @@
+---
+title: Taste model
+description: Kinds, scopes, enforcement, and statuses.
+---
+
+An item is a title, a body, and frontmatter. Agents only see **active** and **exception**.
+
+## Kinds
+
+| Kind | Default enforcement |
+| --- | --- |
+| `preference` | advisory |
+| `convention` | warning |
+| `policy` | block |
+| `lesson` | advisory |
+| `exception` | advisory |
+
+## Scopes
+
+| Scope | Who it belongs to |
+| --- | --- |
+| `personal` | This person. Stays in `personal.md`, gitignored |
+| `project` | This repo. You can create these in the dashboard |
+| `team` | Team standard. Created through review, not the create form |
+| `organization` | Same as team for now. The Better Auth org **is** the project |
+
+## Enforcement
+
+| Level | Meaning |
+| --- | --- |
+| `advisory` | Prefer this |
+| `warning` | Deviate only with a reason |
+| `block` | Must not violate. Hooks and `check` can deny |
+
+## Statuses
+
+| Status | Agents see it |
+| --- | --- |
+| `proposed` | No. Waiting for accept |
+| `active` | Yes |
+| `exception` | Yes |
+| `superseded` | No |
+| `deprecated` | No |
+| `conflicting` | No |
+
+Reject never reopens the row. Fork is the only reopen path.

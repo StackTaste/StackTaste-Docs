@@ -1,0 +1,30 @@
+---
+title: Team
+description: Members, roles, and project keys. Packs and CI checks are coming soon.
+---
+
+A Better Auth organization **is** a StackTaste project. There is no nested org under a project.
+
+## Members
+
+`/app/settings/members`
+
+Invite by email. Built-in roles: `owner`, `admin`, `member`. Custom roles pick from the same ACL.
+
+## Roles
+
+`/app/settings/roles`
+
+Do not edit `owner`, `admin`, or `member`. Taste verbs: `read`, `write` (propose), `publish` (accept/reject), `delete` (proposed forks only).
+
+## Project keys
+
+`/app/keys`
+
+Lists CLI grants and CI keys for this project. Prefix `st_`. Revoke from here.
+
+CLI login mints a key for **one** project. Metadata includes detected editors and last pull time.
+
+## Coming soon
+
+[Packs](/coming-soon) and [CI checks](/coming-soon) are in the sidebar as Coming soon.

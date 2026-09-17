@@ -1,0 +1,25 @@
+---
+title: Auth
+description: Bearer API keys. Prefix st_. One project per CLI grant.
+---
+
+## CLI grant
+
+`stacktaste login` mints a key with metadata `{ purpose, projectIds, agents, via, host, lastPullAt }`.
+
+Use it for `cli.*` and `taste.*` with `X-StackTaste-Project` set to that project id.
+
+## CI key
+
+Dashboard **Project keys** → create. Purpose is `ci` only. Shown once.
+
+```
+Authorization: Bearer st_...
+X-StackTaste-Project: <project-id>
+```
+
+Revoke from the same page or `key.revoke`.
+
+## Cookie session
+
+The web app uses Better Auth cookies. Not this API surface.

@@ -1,0 +1,31 @@
+---
+title: Ranking
+description: Blocking policies first, then a character budget. No embeddings.
+---
+
+Ranking runs in `@stacktaste/core` on disk. No network.
+
+## Order
+
+1. Every injectable **policy** with `enforcement: block`.
+2. Remaining injectable items until a ~3500 character budget.
+
+Injectable = `active` or `exception`.
+
+## Score (non-blocking)
+
+Weighted mix of:
+
+- Confidence (accepts, reinforcements, mentions, rejects)
+- Authority (`organization` > `team` > `project` > `personal`)
+- Recency (half-life about 21 days)
+- Lexical match to the prompt or file paths
+- Explicit items slightly above inferred ones
+
+## Where it is used
+
+- Cursor hook `additional_context`
+- MCP `taste_context`
+- Generated `.cursor/rules/stacktaste.mdc`
+
+Do not invent extra rules beyond this slice.

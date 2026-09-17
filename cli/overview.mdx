@@ -1,0 +1,34 @@
+---
+title: CLI
+description: bunx stacktaste. Token in the keychain. Never in the repo.
+---
+
+```bash
+bunx stacktaste help
+```
+
+| Command | Purpose |
+| --- | --- |
+| `login` | Browser grant, then init |
+| `logout` | Drop token, revoke grant |
+| `init` | Link this repo |
+| `agents` | List or wire editors |
+| `pull` / `push` / `sync` | Cloud |
+| `status` / `doctor` | Health |
+| `search` | Local search |
+| `learn` / `review` / `check` | Capture, accept, scan |
+| `mcp` / `hook` | Stdio. Quiet. Used by Cursor |
+
+`export` and `import` are not implemented.
+
+## Install
+
+Use Bun. The CLI is not a separate npm SDK.
+
+```bash
+bunx stacktaste login
+```
+
+## Auth
+
+See [Login](/cli/login). Override the API with `STACKTASTE_API_URL` (RPC URL, including `/rpc`).

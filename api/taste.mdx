@@ -1,0 +1,51 @@
+---
+title: taste
+description: List, write, accept, reject, reinforce. Project-scoped.
+---
+
+Requires Bearer + `X-StackTaste-Project`. Create/update scope is `personal` or `project`.
+
+## `taste.overview`
+
+Dashboard health. Not the full list.
+
+## `taste.list`
+
+`{ items, stats, canWrite }`.
+
+## `taste.get`
+
+Input: `{ id }`. Item, confidence, signals, versions, suggestions.
+
+## `taste.create`
+
+| Field | Notes |
+| --- | --- |
+| `title` | 2–240 |
+| `body` | 1–20000 |
+| `kind` | preference, convention, policy, lesson, exception |
+| `scope` | `personal` or `project` |
+| `enforcement` | advisory, warning, block |
+| `attachmentIds` | array, often `[]` |
+
+Creates **proposed**.
+
+## `taste.update`
+
+Proposed items only. Partial draft + `id` + `attachmentIds`.
+
+## `taste.accept` / `taste.reject`
+
+Input: `{ id }`. Reject may also return a negative preference proposal.
+
+## `taste.reinforce`
+
+Input: `{ id, note? }`.
+
+## `taste.fork`
+
+New proposed item from an existing one. Input: `id`, optional `versionId` and draft fields.
+
+## `taste.suggest`
+
+Proposed edit to an existing item. `message` required (2–240).

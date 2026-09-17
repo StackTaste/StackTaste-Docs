@@ -1,0 +1,20 @@
+---
+title: key
+description: List and mint CI keys for the active project. Session or matching ACL.
+---
+
+## `key.list`
+
+Keys for the sidebar-selected project.
+
+## `key.create`
+
+Dashboard session. Input: `{ name, purpose: "ci" }`. Returns `key` once.
+
+## `key.revoke`
+
+Input: `{ id }`.
+
+## `key.clients`
+
+Agents page. Paginated machines per IDE tab. Not needed for CI automation.

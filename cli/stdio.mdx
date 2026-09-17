@@ -1,0 +1,15 @@
+---
+title: mcp and hook
+description: Stdio helpers Cursor launches. Do not run these by hand unless debugging.
+---
+
+Cursor starts these. They print JSON only. No Clack UI.
+
+```bash
+bunx stacktaste mcp
+bunx stacktaste hook sessionStart
+```
+
+`mcp` uses the CLI host (API when a token exists). See [MCP overview](/mcp/overview).
+
+`hook <event>` reads JSON on stdin. Events: `sessionStart`, `beforeSubmitPrompt`, `afterFileEdit`, `stop`, `preToolUse`.

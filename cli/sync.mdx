@@ -1,0 +1,20 @@
+---
+title: Sync
+description: Push proposed items, pull team taste, regenerate Cursor rules.
+---
+
+```bash
+bunx stacktaste push
+bunx stacktaste pull
+bunx stacktaste sync
+```
+
+| Command | Effect |
+| --- | --- |
+| `push` | Create or update **proposed** local items on the server |
+| `pull` | Replace local Markdown from the cloud. Stamp `lastPullAt` |
+| `sync` | Push, then pull |
+
+Accepted cloud items are not overwritten from local edits. Change them with a suggestion in the dashboard.
+
+Pull regenerates `.cursor/rules` when Cursor is wired.

@@ -1,0 +1,32 @@
+---
+title: Cursor
+description: What init writes for Cursor, and how hooks, MCP, and rules fit together.
+---
+
+`stacktaste init` or `stacktaste agents add cursor` writes three things under `.cursor/`.
+
+## Files
+
+| File | Role |
+| --- | --- |
+| `.cursor/mcp.json` | Starts `stacktaste mcp` on stdio |
+| `.cursor/hooks.json` | sessionStart, beforeSubmitPrompt, afterFileEdit, stop, preToolUse |
+| `.cursor/rules/stacktaste.mdc` | Always-apply ranked taste. Regenerated on pull, sync, and review |
+
+## Hooks
+
+| Event | Output |
+| --- | --- |
+| `sessionStart`, `beforeSubmitPrompt`, `afterFileEdit` | Ranked `additional_context` |
+| `stop` | Harvests “do not use X” into a proposed item |
+| `preToolUse` | `allow`, or `deny` when a blocking policy needle matches |
+
+Hooks stay quiet. JSON on stdout only.
+
+## MCP
+
+See [MCP overview](/mcp/overview). Cursor calls `taste_context` when it needs an explicit slice.
+
+## Dashboard
+
+`/app/agents` → Cursor tab is live. Other tabs say Coming soon.

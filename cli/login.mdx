@@ -1,0 +1,28 @@
+---
+title: Login
+description: Grant one project to this machine. Token never goes in git.
+---
+
+```bash
+bunx stacktaste login
+bunx stacktaste logout
+```
+
+## Login
+
+1. Opens `/cli/authorize` with a loopback callback.
+2. You pick **one** project.
+3. API mints a Better Auth API key (`st_…`).
+4. Token is posted once to `127.0.0.1`. Then stored.
+
+Storage order:
+
+1. `STACKTASTE_TOKEN` (CI / headless)
+2. OS keychain (service `stacktaste`)
+3. `~/.config/stacktaste/credentials` (0600), doctor warns
+
+Login continues into `init`. Ctrl+C skips.
+
+## Logout
+
+Deletes the keychain item and revokes the server key.

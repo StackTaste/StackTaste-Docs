@@ -1,0 +1,39 @@
+@font-face {
+	font-family: "Open Runde";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/fonts/open-runde-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Open Runde";
+	font-style: normal;
+	font-weight: 500;
+	font-display: swap;
+	src: url("/fonts/open-runde-latin-500-normal.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Open Runde";
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("/fonts/open-runde-latin-600-normal.woff2") format("woff2");
+}
+
+html {
+	--font-body: "Open Runde";
+	--font-heading: "Open Runde";
+	font-family: "Open Runde", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Square mark, same 24px tile as the landing header. */
+header a[href="/"] img,
+img.nav-logo {
+	height: 1.5rem !important;
+	width: 1.5rem !important;
+	max-width: none;
+	border-radius: 18%;
+	object-fit: contain;
+}
