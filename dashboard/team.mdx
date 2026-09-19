@@ -1,29 +1,44 @@
 ---
 title: Team
-description: Members, roles, and project keys. Packs and CI checks are coming soon.
+description: Organization billing, project members, roles, and project keys.
 ---
 
-A StackTaste project is the unit of members, roles, and keys. There is no nested organization under a project.
+An organization owns billing and org members. A project under it owns taste, keys, and collaborators. Org members do not automatically see every project.
 
 ## Members
 
-`/app/settings/members`
+`/{org}/{project}/settings/members`
 
-Invite by email. Built-in roles: `owner`, `admin`, `member`. Custom roles pick from the same ACL.
+Invite by email to **this project**. Built-in project roles: `owner`, `admin`, `member`. Custom roles pick from the same ACL. Accept also adds the person as an organization `member` if they are not already in the org.
 
 ## Roles
 
-`/app/settings/roles`
+`/{org}/{project}/settings/roles`
 
-Do not edit `owner`, `admin`, or `member`. Taste verbs: `read`, `write` (propose), `publish` (accept/reject), `delete` (proposed forks only).
+Do not edit `owner`, `admin`, or `member`.
+
+| Permission | What it allows |
+| --- | --- |
+| `taste.read` | List, get, and open a suggestion |
+| `taste.write` | Propose, accept, reject, merge (default member has this) |
+| `taste.delete` | Delete proposed forks |
+| `policy.write` | The same actions when the item is a policy |
+
+<Note>
+`taste.publish` is on owner and admin in the role list. Accept today is gated by **write**, not publish.
+</Note>
 
 ## Project keys
 
-`/app/keys`
+`/{org}/{project}/keys`
 
-Lists CLI grants and CI keys for this project. Prefix `st_`. Revoke from here.
+CLI grants and CI keys for this project. Prefix `st_`. Revoke from here. Login mints a key for **one** project.
 
-CLI login mints a key for **one** project. Metadata includes detected editors and last pull time.
+## Billing
+
+`/projects/billing` and `/projects/invoices`
+
+Sip is $1 / month ($10 / year). Stack is $9 / month ($90 / year). Billed on the organization, covers every project in it. Invited members do not pay and do not see this page unless they can manage org billing.
 
 ## Coming soon
 

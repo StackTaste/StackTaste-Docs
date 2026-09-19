@@ -1,27 +1,11 @@
 ---
 title: CLI
-description: bunx stacktaste. Token in the keychain. Never in the repo.
+description: One binary. Token in the keychain. Never in the repo.
 ---
 
 ```bash
 stacktaste help
 ```
-
-| Command | Purpose |
-| --- | --- |
-| `login` | Browser grant, then init |
-| `logout` | Drop token, revoke grant |
-| `init` | Link this repo |
-| `agents` | List or wire editors |
-| `pull` / `push` / `sync` | Cloud |
-| `status` / `doctor` | Health |
-| `search` | Local search |
-| `learn` / `review` / `check` | Capture, accept, scan |
-| `mcp` / `hook` | Stdio. Quiet. Used by Cursor |
-
-`export` and `import` are not implemented.
-
-## Install
 
 The package on npm is `stacktaste`.
 
@@ -45,28 +29,47 @@ bun add -g stacktaste
 
 </CodeGroup>
 
-Or run without installing:
+Or run without installing: `npx stacktaste login`, `pnpm dlx`, `yarn dlx`, or `bunx`.
 
-<CodeGroup>
+<CardGroup cols={2}>
+	<Card title="Login" icon="key" href="/cli/login">
+		Grant one project to this machine.
+	</Card>
+	<Card title="Init" icon="folder-plus" href="/cli/init">
+		Link the repo and wire Cursor.
+	</Card>
+	<Card title="Taste catalog" icon="table-list" href="/cli/taste">
+		List every item. Open history, PRs, and hits.
+	</Card>
+	<Card title="Learn and review" icon="pen-to-square" href="/cli/learn">
+		Propose, accept, reject, and scan policies.
+	</Card>
+	<Card title="Sync" icon="arrows-rotate" href="/cli/sync">
+		Push proposals, pull the team copy.
+	</Card>
+	<Card title="Hooks and MCP" icon="plug" href="/cli/stdio">
+		What Cursor launches. StackTaste Alert.
+	</Card>
+</CardGroup>
 
-```bash npm
-npx stacktaste login
-```
+## Commands
 
-```bash pnpm
-pnpm dlx stacktaste login
-```
+| Command | Purpose |
+| --- | --- |
+| `login` / `logout` | Grant this machine, or revoke it |
+| `init` | Link this repo and write agent files |
+| `agents` | List or wire editors |
+| `taste` / `list` | Catalog, or one item with history, PRs, and hits |
+| `search` | Search local taste |
+| `learn` | Capture a proposed item |
+| `review` | List proposals, or accept / reject one |
+| `pull` / `push` / `sync` | Cloud |
+| `check` | Scan changed files for blocking policies |
+| `status` / `doctor` | Health |
+| `mcp` / `hook` | Stdio. Cursor starts these |
 
-```bash yarn
-yarn dlx stacktaste login
-```
-
-```bash bun
-bunx stacktaste login
-```
-
-</CodeGroup>
+`export` and `import` are not implemented.
 
 ## Auth
 
-See [Login](/cli/login). Override the API with `STACKTASTE_API_URL` (RPC URL, including `/rpc`).
+See [Login](/cli/login). Override the API with `STACKTASTE_API_URL` (the RPC URL, including `/rpc`).

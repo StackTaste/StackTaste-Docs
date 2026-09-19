@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description: doctor, login, drift, secrets, and a grant that is missing this project.
+description: doctor, login, drift, secrets, and Cursor not seeing taste.
 ---
 
 Run this first:
@@ -19,13 +19,15 @@ Token sources, in order: `STACKTASTE_TOKEN`, OS keychain, `~/.config/stacktaste/
 
 ## Grant missing this project
 
-Login again and pick the project. Grants are additive. The key is one project per machine grant.
+Login again and pick the project. One key is one project.
 
 ## Drift
 
 Local ids do not match cloud. `stacktaste sync` pushes proposed items, then pulls.
 
 `stacktaste check` pulls first if you are behind.
+
+Inspect both sides with [`stacktaste taste`](/cli/taste).
 
 ## Secrets
 
@@ -42,6 +44,10 @@ Already linked: pass `--reinit` to switch project or path.
 ## Cursor not seeing taste
 
 1. `stacktaste status` — agents should include `cursor`.
-2. `stacktaste agents add cursor` if missing.
+2. `stacktaste agents add cursor` if missing (also refreshes hook events).
 3. Reload the Cursor window.
 4. Confirm `.cursor/mcp.json` and `.cursor/hooks.json` exist.
+
+## A tool was blocked
+
+That is a **StackTaste Alert**. The policy title and reason are in the message. The agent must ask you before proposing an exception. See [MCP and hooks](/cli/stdio).

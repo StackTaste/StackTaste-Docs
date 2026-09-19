@@ -12,7 +12,7 @@ stacktaste learn --kind policy "No lodash"
 
 `--kind` is `preference` (default), `convention`, `policy`, `lesson`, or `exception`.
 
-Logged in: creates on the server as **proposed**. Else writes local Markdown. Then `stacktaste push`.
+Logged in: creates on the server as **proposed**. Else writes local Markdown, then `stacktaste push`.
 
 ## Review
 
@@ -22,7 +22,13 @@ stacktaste review accept <id-or-title>
 stacktaste review reject <id-or-title>
 ```
 
-Needs login. Pulls after accept or reject so local files and Cursor rules match.
+Needs login and `taste.write`. Pulls after accept or reject so local files and Cursor rules match.
+
+The accept is logged as a history row with your name. See it with [`stacktaste taste <id>`](/cli/taste).
+
+<Note>
+An accepted **exception** is long-lived, like any other item. It does not expire, and it does not lift an existing blocking policy by itself today.
+</Note>
 
 ## Check
 

@@ -7,15 +7,17 @@ description: Bearer API keys. Prefix st_. One project per CLI grant.
 
 `stacktaste login` mints a key with metadata `{ purpose, projectIds, agents, via, host, lastPullAt }`.
 
-Use it for `cli.*` and `taste.*` with `X-StackTaste-Project` set to that project id.
+Use it for `cli.*` and `taste.*` with `X-StackTaste-Project` set to that project id or slug.
+
+The id is on **Settings → Project** and **Project keys**. It is not the project name.
 
 ## CI key
 
-Dashboard **Project keys** → create. Purpose is `ci` only. Shown once.
+Dashboard **Project keys** → create. Purpose is `ci` only. Shown once. Copy the headers from that dialog — they include the project id.
 
 ```
 Authorization: Bearer st_...
-X-StackTaste-Project: <project-id>
+X-StackTaste-Project: <project-id-or-slug>
 ```
 
 Revoke from the same page or `key.revoke`.

@@ -1,32 +1,42 @@
 ---
 title: Cursor
-description: What init writes for Cursor, and how hooks, MCP, and rules fit together.
+description: Hooks, MCP, rules, and StackTaste Alert.
 ---
 
-`stacktaste init` or `stacktaste agents add cursor` writes three things under `.cursor/`.
+`stacktaste init` or `stacktaste agents add cursor` writes three things under `.cursor/`. Re-run `agents add cursor` after a CLI upgrade so new hook events land.
 
 ## Files
 
 | File | Role |
 | --- | --- |
 | `.cursor/mcp.json` | Starts `stacktaste mcp` on stdio |
-| `.cursor/hooks.json` | sessionStart, beforeSubmitPrompt, afterFileEdit, stop, preToolUse |
-| `.cursor/rules/stacktaste.mdc` | Always-apply ranked taste. Regenerated on pull, sync, and review |
+| `.cursor/hooks.json` | Session hooks plus tool / shell / MCP gates |
+| `.cursor/rules/stacktaste.mdc` | Always-apply ranked taste |
 
 ## Hooks
 
-| Event | Output |
+| Event | What happens |
 | --- | --- |
-| `sessionStart`, `beforeSubmitPrompt`, `afterFileEdit` | Ranked `additional_context` |
+| `sessionStart`, `beforeSubmitPrompt`, `afterFileEdit` | Ranked taste as `additional_context` |
 | `stop` | Harvests “do not use X” into a proposed item |
-| `preToolUse` | `allow`, or `deny` when a blocking policy needle matches |
+| `preToolUse`, `beforeShellExecution`, `beforeMCPExecution` | Allow, or **StackTaste Alert** and deny |
 
-Hooks stay quiet. JSON on stdout only.
+Gate hooks use `failClosed` so a crashed check does not silently allow the call. Hooks print JSON only.
+
+### StackTaste Alert
+
+The user sees the policy title and the **full reason**. The action does not run.
+
+The agent is told: do not retry or work around it; ask the user if they want an exception; wait for an explicit yes; do not execute the blocked action.
+
+<Warning>
+The agent cannot force a blocked tool. A chat “yes” does not disable the policy. Accept an exception from [`stacktaste review`](/cli/learn) or the dashboard.
+</Warning>
 
 ## MCP
 
-See [MCP overview](/mcp/overview). Cursor calls `taste_context` when it needs an explicit slice.
+See [MCP overview](/mcp/overview). Cursor launches the server. You do not start it by hand.
 
 ## Dashboard
 
-`/app/agents` → Cursor tab is live. Other tabs say Coming soon.
+`/{org}/{project}/agents` → Cursor tab is live. Other tabs say Coming soon.

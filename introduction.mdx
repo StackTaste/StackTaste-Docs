@@ -1,25 +1,36 @@
 ---
 title: Introduction
-description: StackTaste is the persistent taste layer for coding agents.
+description: Teach it once. Cursor and your teammates stop repeating the same corrections.
 ---
 
-StackTaste remembers how you want software built. Teach it once. Cursor and your teammates stop repeating the same corrections.
+StackTaste is the persistent taste layer for coding agents. Preferences, conventions, policies, and lessons live as Markdown in the repo and as history in the cloud.
 
-Local Markdown in `.stacktaste/` is the working copy. Cloud is history, team sharing, and the dashboard.
+Local `.stacktaste/` is what the agent reads. Cloud is the team copy, the dashboard, and the audit log.
+
+<CardGroup cols={2}>
+	<Card title="Quickstart" icon="bolt" href="/quickstart">
+		Create a project, grant this machine, wire Cursor.
+	</Card>
+	<Card title="How it works" icon="diagram-project" href="/concepts/how-it-works">
+		Teach, rank, inject, and block with a StackTaste Alert.
+	</Card>
+	<Card title="CLI catalog" icon="table-list" href="/cli/taste">
+		List every item. Open one for history, PRs, and hits.
+	</Card>
+	<Card title="Dashboard" icon="objects-column" href="/dashboard/overview">
+		Review proposals, members, and billing on the organization.
+	</Card>
+</CardGroup>
 
 ## Live now
 
-- Dashboard for preferences, policies, and lessons
-- CLI login, init, sync, learn, review, check
-- MCP tools and Cursor hooks
+- **Sip** ($1 / month) and **Stack** ($9 / month or $90 / year), billed on the organization
+- Dashboard at `/{org}/{project}` for preferences, policies, lessons, members, and keys
+- Org billing and invoices at `/projects/billing`
+- CLI: login, init, sync, **taste / list**, learn, review, check
+- MCP tools plus Cursor hooks, including **StackTaste Alert** on blocked tools
 - Ranked context and generated `.cursor/rules`
 
-## Later
+## Not live yet
 
-Claude Code, Codex, Copilot, Windsurf, GitHub CI, packs, and billing. See [Coming soon](/coming-soon).
-
-## How you use it
-
-1. Create a project on [stacktaste.com](https://stacktaste.com).
-2. Run `stacktaste login` then `stacktaste init` in a repo.
-3. Cursor loads ranked taste on each session.
+Claude Code, Codex, Copilot, Windsurf as first-class agents, GitHub CI, and packs. See [Coming soon](/coming-soon).

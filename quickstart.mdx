@@ -1,78 +1,79 @@
 ---
 title: Quickstart
-description: Sign in, link a repo, and wire Cursor in three commands.
+description: Sign in, pick a plan, link a repo, and wire Cursor.
 ---
 
-Cursor is the only agent that is live. Other editors are coming soon.
+Cursor is the live agent. Other editors can be wired as stubs.
 
-## 1. Create a project
+<Steps>
+	<Step title="Create a project">
+		Sign up at [stacktaste.com](https://stacktaste.com). Choose **Sip** or **Stack** for the organization, then create a project.
+	</Step>
+	<Step title="Grant this machine">
+		In the repo:
 
-Sign up at [stacktaste.com](https://stacktaste.com) and create a project.
+		<CodeGroup>
 
-## 2. Grant this machine
+		```bash npm
+		npx stacktaste login
+		```
 
-In the repo:
+		```bash pnpm
+		pnpm dlx stacktaste login
+		```
 
-<CodeGroup>
+		```bash yarn
+		yarn dlx stacktaste login
+		```
 
-```bash npm
-npx stacktaste login
-```
+		```bash bun
+		bunx stacktaste login
+		```
 
-```bash pnpm
-pnpm dlx stacktaste login
-```
+		</CodeGroup>
 
-```bash yarn
-yarn dlx stacktaste login
-```
+		A browser tab opens. Pick **one** project. The token is stored in the OS keychain, never in git.
 
-```bash bun
-bunx stacktaste login
-```
+		Press Ctrl+C after login if you want to init later.
+	</Step>
+	<Step title="Link the repo">
+		<CodeGroup>
 
-</CodeGroup>
+		```bash npm
+		npx stacktaste init
+		```
 
-A browser tab opens. Pick one project. The token is stored in the OS keychain, never in git.
+		```bash pnpm
+		pnpm dlx stacktaste init
+		```
 
-Press Ctrl+C after login if you want to init later.
+		```bash yarn
+		yarn dlx stacktaste init
+		```
 
-## 3. Link the repo
+		```bash bun
+		bunx stacktaste init
+		```
 
-<CodeGroup>
+		</CodeGroup>
 
-```bash npm
-npx stacktaste init
-```
-
-```bash pnpm
-pnpm dlx stacktaste init
-```
-
-```bash yarn
-yarn dlx stacktaste init
-```
-
-```bash bun
-bunx stacktaste init
-```
-
-</CodeGroup>
-
-The wizard asks:
-
-- Which project (skipped if the grant has one)
-- Where `.stacktaste/` should live (repo root or a subfolder)
-- Which agent (pick **Cursor**)
-
-Then it pulls team taste, writes `stacktaste.config.json`, and wires Cursor MCP, hooks, and `.cursor/rules`.
-
-## 4. Open Cursor
-
-Start a chat in that repo. StackTaste attaches ranked taste at session start. Blocking policies always apply.
+		The wizard asks which project, where `.stacktaste/` should live, and which agent. Pick **Cursor**. It pulls team taste and writes MCP, hooks, and `.cursor/rules`.
+	</Step>
+	<Step title="Open Cursor">
+		Start a chat in that repo. StackTaste attaches ranked taste at session start. Blocking policies show a **StackTaste Alert** and do not run.
+	</Step>
+</Steps>
 
 ## Next
 
-- [How it works](/concepts/how-it-works)
-- [Cursor](/agents/cursor)
-- [CLI](/cli/overview)
+<CardGroup cols={3}>
+	<Card title="See your taste" icon="table-list" href="/cli/taste">
+		`stacktaste taste`
+	</Card>
+	<Card title="Cursor" icon="arrow-pointer" href="/agents/cursor">
+		Hooks, MCP, and alerts
+	</Card>
+	<Card title="CLI" icon="terminal" href="/cli/overview">
+		Every command
+	</Card>
+</CardGroup>

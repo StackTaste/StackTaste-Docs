@@ -1,0 +1,68 @@
+---
+title: Taste catalog
+description: List every item, or open one for body, history, PRs, and reinforcements.
+---
+
+```bash
+stacktaste taste
+stacktaste list
+stacktaste taste <id-or-title>
+```
+
+`list` is the same command as `taste`.
+
+<Tip>
+Need login for history, who accepted, and PRs. Offline you still get the local catalog and the body.
+</Tip>
+
+## Catalog
+
+```bash
+stacktaste taste
+```
+
+Logged in: every item on the linked project, as a table.
+
+| Column | Meaning |
+| --- | --- |
+| Id | Short id. Pass it to open the item |
+| Kind | Preference, convention, policy, lesson, exception |
+| Status | `active`, `proposed`, `rejected`, … |
+| PRs | Open suggestions |
+| Hits | How many times it was reinforced |
+| Title | The item |
+
+Then:
+
+```bash
+stacktaste taste c971585d
+```
+
+## One item
+
+```bash
+stacktaste taste c971585d
+stacktaste taste "Prefer tabs"
+```
+
+Five tables, in order:
+
+| Table | What you see |
+| --- | --- |
+| This item | Kind, status, author, confidence, hit / accept / reject counts |
+| What’s in it | The full body |
+| History | Who accepted, edited, or rejected, and when |
+| PRs | Pending, merged, and closed suggestions, with author and reviewer |
+| Signals | Every reinforce, accept, reject, and correction |
+
+History is the server version log. Accept from the CLI still records **you** as the actor.
+
+## Review from here
+
+```bash
+stacktaste review
+stacktaste review accept c971585d
+stacktaste review reject c971585d
+```
+
+Needs `taste.write` (default member). Policies need `policy.write`.

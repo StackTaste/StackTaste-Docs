@@ -12,4 +12,8 @@ Ids: `cursor`, `claude-code`, `codex`, `copilot`, `windsurf`.
 
 **Cursor is the live product.** Other ids may write stubs. Treat them as [coming soon](/coming-soon).
 
-`agents add cursor` merges MCP, hooks, and regenerates `.cursor/rules/stacktaste.mdc`.
+`agents add cursor` merges MCP, session hooks, **StackTaste Alert** gates (`preToolUse`, `beforeShellExecution`, `beforeMCPExecution`), and regenerates `.cursor/rules/stacktaste.mdc`.
+
+<Tip>
+Run this again after upgrading the CLI so existing repos pick up new hook events.
+</Tip>

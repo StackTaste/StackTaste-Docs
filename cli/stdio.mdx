@@ -1,15 +1,39 @@
 ---
-title: mcp and hook
-description: Stdio helpers Cursor launches. Do not run these by hand unless debugging.
+title: MCP and hooks
+description: What Cursor launches. StackTaste Alert lives here.
 ---
 
-Cursor starts these. They print JSON only. No Clack UI.
+You do not start these. Cursor does. They print JSON only — no prompts.
 
 ```bash
 stacktaste mcp
 stacktaste hook sessionStart
 ```
 
-`mcp` uses the CLI host (API when a token exists). See [MCP overview](/mcp/overview).
+## MCP
 
-`hook <event>` reads JSON on stdin. Events: `sessionStart`, `beforeSubmitPrompt`, `afterFileEdit`, `stop`, `preToolUse`.
+`stacktaste mcp` is stdio. Cursor reads `.cursor/mcp.json` and launches the same binary that ran `init`. Logged in, tools can create and review over the API. See [MCP overview](/mcp/overview).
+
+## Hooks
+
+`stacktaste hook <event>` reads JSON on stdin.
+
+| Event | Role |
+| --- | --- |
+| `sessionStart`, `beforeSubmitPrompt`, `afterFileEdit` | Ranked taste |
+| `stop` | Harvest a correction into a proposed item |
+| `preToolUse`, `beforeShellExecution`, `beforeMCPExecution` | Gate |
+
+After a CLI upgrade, run `stacktaste agents add cursor` so the new gate events are in `.cursor/hooks.json`.
+
+## StackTaste Alert
+
+When a blocking policy matches a tool, shell command, or MCP call:
+
+1. The call is **denied**. The agent cannot run it.
+2. The user sees **StackTaste Alert**, the policy title, and the full why.
+3. The agent is told to ask the user about an exception, wait for an explicit yes, and not retry or work around the block.
+
+<Warning>
+Confirming in chat does not turn the policy off. Propose an exception, then accept it from [`stacktaste review`](/cli/learn) or the dashboard. The original policy still matches until it is changed.
+</Warning>

@@ -1,11 +1,9 @@
 ---
 title: MCP
-description: Stdio server named stacktaste. Cursor launches it from .cursor/mcp.json.
+description: Stdio server named stacktaste. Cursor launches it. You do not.
 ---
 
 There is no npm SDK. Agents talk to StackTaste through this MCP server and through hooks.
-
-## Wire
 
 `stacktaste init` or `agents add cursor` writes:
 
@@ -22,6 +20,10 @@ There is no npm SDK. Agents talk to StackTaste through this MCP server and throu
 
 Exact `command` / `args` are the CLI process that ran init, so the same binary is reused.
 
+<Note>
+This is a **local** stdio server. Cursor starts it when a tool is needed. It is not a hosted URL. It can read `.stacktaste/` on disk. A remote MCP would only see cloud taste.
+</Note>
+
 ## Hosts
 
 | How it starts | Network |
@@ -33,8 +35,8 @@ Exact `command` / `args` are the CLI process that ran init, so the same binary i
 
 | Path | Role |
 | --- | --- |
-| Hooks | Automatic ranked slice |
-| MCP tools | Explicit get / learn / review |
+| Hooks | Automatic ranked slice, and **StackTaste Alert** on blocks |
+| MCP tools | Explicit get / learn / review / reinforce |
 | `.cursor/rules` | Always-apply file |
 
-Tools: [MCP tools](/mcp/tools).
+Tools: [MCP tools](/mcp/tools). Hooks: [MCP and hooks](/cli/stdio).

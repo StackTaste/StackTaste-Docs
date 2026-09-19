@@ -16,7 +16,9 @@ Procedure names, not REST paths. Example: `taste.list`.
 | Header | Value |
 | --- | --- |
 | `Authorization` | `Bearer st_…` |
-| `X-StackTaste-Project` | Project id |
+| `X-StackTaste-Project` | Project id or slug |
+
+The id is on **Settings → Project** and **Project keys**. The slug is the URL name (`stacktaste.com/<slug>`). Either works.
 
 Mint keys in **Project keys** (`ci`) or via `stacktaste login` (`cli`).
 

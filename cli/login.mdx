@@ -1,6 +1,6 @@
 ---
 title: Login
-description: Grant one project to this machine. Token never goes in git.
+description: Grant one project to this machine. The token never goes in git.
 ---
 
 ```bash
@@ -10,18 +10,26 @@ stacktaste logout
 
 ## Login
 
-1. Opens `/cli/authorize` with a loopback callback.
-2. You pick **one** project.
-3. API mints an API key (`st_…`).
-4. Token is posted once to `127.0.0.1`. Then stored.
+<Steps>
+	<Step title="Browser grant">
+		Opens `/cli/authorize` with a loopback callback.
+	</Step>
+	<Step title="Pick one project">
+		The grant is for that project only.
+	</Step>
+	<Step title="Store the token">
+		API mints `st_…`. It is posted once to `127.0.0.1`, then stored.
+	</Step>
+	<Step title="Init">
+		Login continues into `init`. Ctrl+C skips. Run `stacktaste init` later.
+	</Step>
+</Steps>
 
 Storage order:
 
 1. `STACKTASTE_TOKEN` (CI / headless)
 2. OS keychain (service `stacktaste`)
-3. `~/.config/stacktaste/credentials` (0600), doctor warns
-
-Login continues into `init`. Ctrl+C skips.
+3. `~/.config/stacktaste/credentials` (0600) — `doctor` warns
 
 ## Logout
 

@@ -35,7 +35,7 @@
 		"links": [
 			{
 				"label": "Dashboard",
-				"href": "https://stacktaste.com/app"
+				"href": "https://stacktaste.com/projects"
 			}
 		],
 		"primary": {
@@ -74,17 +74,16 @@
 				"tab": "CLI",
 				"groups": [
 					{
-						"group": "Reference",
-						"pages": [
-							"cli/overview",
-							"cli/login",
-							"cli/init",
-							"cli/agents",
-							"cli/sync",
-							"cli/status",
-							"cli/learn",
-							"cli/stdio"
-						]
+						"group": "Start",
+						"pages": ["cli/overview", "cli/login", "cli/init"]
+					},
+					{
+						"group": "Day to day",
+						"pages": ["cli/taste", "cli/learn", "cli/sync", "cli/agents", "cli/status"]
+					},
+					{
+						"group": "Cursor",
+						"pages": ["cli/stdio"]
 					}
 				]
 			},
